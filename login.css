@@ -1,0 +1,134 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #121212;
+  --white: #FFFFFF;
+  --purple: #D600EE;
+  --pink: #FB00C1;
+  --lightgray: #F6F6F6;
+  --darkgray: #616161;
+  --h1: 48px;
+  --h2: 36px;
+  --p: 16px;
+  --a: 12px;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+.head {
+  padding: 1rem 5%;
+  display: flex;
+  background-color: var(--darkgray);
+  justify-content: space-between;
+  align-items: center;
+}
+.head .head-desc p {
+  font-size: var(--p);
+  margin: 0;
+  color: var(--white);
+}
+.head .head-social {
+  display: flex;
+  color: var(--white);
+}
+.head .head-social p {
+  margin: 0 1rem;
+  font-size: var(--p);
+}
+.head .head-social a {
+  margin: 0 1rem;
+  font-size: var(--p);
+  color: var(--white);
+  transition: 0.5 ease;
+}
+.head .head-social a:hover {
+  color: var(--pink);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--white);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  z-index: 2000;
+}
+.header .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 5%;
+}
+.header .flex img {
+  height: 5rem;
+}
+.header .navbar a {
+  margin-left: 2rem;
+  font-size: var(--a);
+  color: var(--black);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.5s ease;
+}
+.header .navbar a:hover {
+  color: var(--purple);
+}
+.header .navbar .btnLogin {
+  background-color: var(--purple);
+  padding: 12px 34px;
+  color: var(--white);
+}
+.header .navbar .btnLogin:hover {
+  background-color: var(--pink);
+  color: var(--white);
+}
+
+.login {
+  padding: 3rem 5%;
+}
+.login .login-title {
+  text-align: center;
+  width: 100%;
+  padding: 3rem 30%;
+}
+.login .login-title h1 {
+  font-size: var(--h1);
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--purple);
+  margin-bottom: 2rem;
+}
+.login .login-title form label {
+  text-align: left;
+}
+.login .login-title form button {
+  margin-bottom: 1rem;
+  padding: 12px 34px;
+  color: var(--white);
+  background-color: var(--purple);
+  border: 0;
+  transition: 0.5s ease;
+}
+.login .login-title form button:hover {
+  background-color: var(--pink);
+}
+.login .login-title form a {
+  text-decoration: none;
+  color: var(--purple);
+  transition: 0.5s ease;
+}
+.login .login-title form a:hover {
+  color: var(--pink);
+}

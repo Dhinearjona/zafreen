@@ -1,0 +1,61 @@
+@import url('header.php');
+
+.content {
+    padding: 5rem 15%;
+
+    .content-title {
+        padding: 2rem 1rem;
+        text-align: -webkit-center;
+        justify-content: space-between;
+        
+        h1 {
+            color: var(--purple);
+            font-size: var(--h1);
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        hr {
+            background-color: var(--purple);
+            width: 8rem;
+        }
+    }
+
+    .content-desc {
+        text-align: left;
+        margin: 2% 0;
+
+        h1 {
+            color: var(--purple);
+            font-size: var(--h1);
+            font-weight: 800;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        
+        img {
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        p {
+            margin-top: 1rem;
+            font-size: 18px;
+        }
+
+        b {
+            color: var(--purple);
+            font-size: 36px;
+        }
+    }
+
+    .btn-primary {
+        background-color: var(--purple);
+        border: 1px solid var(--purple);
+        transition: 0.5s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--pink);
+    }
+}

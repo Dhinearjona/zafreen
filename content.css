@@ -1,0 +1,50 @@
+@import url("header.php");
+.content {
+  padding: 5rem 15%;
+}
+.content .content-title {
+  padding: 2rem 1rem;
+  text-align: -webkit-center;
+  justify-content: space-between;
+}
+.content .content-title h1 {
+  color: var(--purple);
+  font-size: var(--h1);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.content .content-title hr {
+  background-color: var(--purple);
+  width: 8rem;
+}
+.content .content-desc {
+  text-align: left;
+  margin: 2% 0;
+}
+.content .content-desc h1 {
+  color: var(--purple);
+  font-size: var(--h1);
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+}
+.content .content-desc img {
+  width: 100%;
+  margin-top: 2rem;
+}
+.content .content-desc p {
+  margin-top: 1rem;
+  font-size: 18px;
+}
+.content .content-desc b {
+  color: var(--purple);
+  font-size: 36px;
+}
+.content .btn-primary {
+  background-color: var(--purple);
+  border: 1px solid var(--purple);
+  transition: 0.5s ease;
+}
+.content .btn-primary:hover {
+  background-color: var(--pink);
+}

@@ -1,0 +1,54 @@
+@import url('header.css');
+@import url('footer.css');
+
+.cover {
+    height: 80vh;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(/img/cover.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+
+    .cover-desc {
+        text-align: center;
+        line-height: 3rem;
+
+        h1 {
+            font-size: var(--h1);
+            color: var(--purple);
+            font-weight: 800;
+        }
+
+        p {
+            font-size: var(--p);
+            color: var(--white);
+        }
+
+        a {
+            font-size: var(--a);
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: var(--white);
+            padding: 12px 34px;
+            background-color: var(--purple);
+            border-radius: 10px;
+            transition: 0.5s ease;
+        }
+
+        a:hover {
+            background-color: var(--pink);
+        }
+
+        .btn2 {
+            background-color: transparent;
+            transition: 0.5s ease;
+        }
+
+        .btn2:hover {
+            background-color: transparent;
+            color: var(--pink);
+        }
+    }
+}
