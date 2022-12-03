@@ -77,22 +77,22 @@ if (!isset($_SESSION['username'])) {
             <h1>Our Dentist</h1>
                 <div class="column">
                     <div class="card">
-                        <img src="img/profile.png" />
+                        <img src="img/haslaine.jpg" />
                         <h1>Dr. Haslaine P. Caunda</h1>
                         <p>Owner/Dentist</p>
                     </div>
                     <div class="card">
-                        <img src="img/profile.png" />
+                        <img src="img/ashylle.jpg" />
                         <h1>Dr. Ashylle Anne Dime</h1>
                         <p>Dentist</p>
                     </div>
                     <div class="card">
-                        <img src="img/profile.png" />
+                        <img src="img/jamvit.jpg" />
                         <h1>Dr. Jamvit Cajaban</h1>
                         <p>Dentist</p>
                     </div>
                     <div class="card">
-                        <img src="img/profile.png" />
+                        <img src="img/joezette.jpg" />
                         <h1>Dr. Joezette Talaue</h1>
                         <p>Dentist</p>
                     </div>
@@ -102,22 +102,22 @@ if (!isset($_SESSION['username'])) {
             <h1>Staff Members</h1>
                 <div class="column">
                     <div class="card">
-                        <img src="img/profile.png" />
+                        <img src="img/mohammad.jpg" />
                         <h1>Mohammad Jisham Saripada</h1>
                         <p>Receptionist</p>
                     </div>
                     <div class="card">
-                        <img src="img/profile.png" />
+                        <img src="img/maria.jpg" />
                         <h1>Maria Cristina Almario</h1>
                         <p>Dental Assistant</p>
                     </div>
                     <div class="card">
-                        <img src="img/profile.png" />
+                        <img src="img/jessa.jpg" />
                         <h1>Jessa Mae Gasita</h1>
                         <p>Receptionist/Dental Assistant</p>
                     </div>
                     <div class="card">
-                        <img src="img/profile.png" />
+                        <img src="img/rhancel.jpg" />
                         <h1>Rhancel Dela Vega</h1>
                         <p>Receptionist</p>
                     </div>
