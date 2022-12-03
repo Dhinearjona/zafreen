@@ -99,14 +99,23 @@ if (!isset($_SESSION['username'])) {
                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="message"></textarea>
                             <label for="floatingTextarea2">Message:</label>
                         </div>
-                        <div class="mb-3">
-                            <label for="rate">Rate (1-5):</label>
-                            <input type="number" class="form-control" id="form-control" placeholder="Rate my services" name="rate" value="" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="prefdentistry">Preferred Dentistry:</label>
-                            <input type="text" class="form-control" id="form-control" placeholder="Preferred Dentistry" name="prefdentistry" value="" required>
-                        </div>
+                        <label for="services">Rate(1-5):</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Rate Me</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <label for="services">Preferred Dentistry:</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Preferred Dentistry</option>
+                            <option value="Dr. Haslaine P. Caunda">Dr. Haslaine P. Caunda</option>
+                            <option value="Dr. Ashylle Anne Dime">Dr. Ashylle Anne Dime</option>
+                            <option value="Dr. Jamvit Cajaban">Dr. Jamvit Cajaban</option>
+                            <option value="Dr. Joezette Talaue">Dr. Joezette Talaue</option>
+                        </select>
                         <div class="mb-3">
                             <label for="date">Preferred Date:</label>
                             <input type="date" class="form-control" id="form-control" placeholder="Preferred Date" name="date" value="" required>
@@ -115,19 +124,27 @@ if (!isset($_SESSION['username'])) {
                             <label for="time">Preferred Time:</label>
                             <input type="time" class="form-control" id="form-control" placeholder="Preferred Time" name="time" value="" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="services">Services:</label>
-                            <input type="text" class="form-control" id="form-control" placeholder="Preferred Services" name="services" value="" required>
-                        </div>
+                        <label for="services">Services:</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Preferred Services</option>
+                            <option value="Dental Implants">Dental Implants</option>
+                            <option value="Bone Grafting">Bone Grafting</option>
+                            <option value="Surgical Extraction">Surgical Extraction</option>
+                            <option value="Supernumerary Tooth Removal">Supernumerary Tooth Removal</option>
+                            <option value="Deciduous Tooth Remova">Deciduous Tooth Removal</option>
+                            <option value="Odontectomy Odontectomy">Odontectomy Odontectomy</option>
+                            <option value="Frenectomy Frenectomy">Frenectomy Frenectomy</option>
+                            <option value="Oral and Maxillofacial Surgery">Oral and Maxillofacial Surgery</option>
+                        </select>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Save an Appointment</button>
                 </div>
-                </div>
             </div>
-            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
