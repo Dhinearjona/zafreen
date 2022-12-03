@@ -54,14 +54,14 @@
         background-color: var(--purple);
         border: 1px solid var(--purple);
         transition: 0.5s ease;
+
+        a {
+            color: var(--white);
+            text-decoration: none;
+        }
     }
 
     .btn-primary:hover {
         background-color: var(--pink);
-    }
-
-    a {
-        color: var(--white);
-        text-decoration: none;
     }
 }

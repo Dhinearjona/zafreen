@@ -18,7 +18,7 @@ if (!isset($_SESSION['username'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="contservices.scss">
+    <link rel="stylesheet" href="content.css">
     <title>Endodontics - Zafreen Dental Clinic</title>
 </head>
 <body>
@@ -66,53 +66,106 @@ if (!isset($_SESSION['username'])) {
                 <br><br>
                 Root canals can be very complex, with many tiny branches off the main canal. Sometimes, even after root canal treatment, infected tissue can remain in these branches. This can possibly prevent healing or cause re-infection later. In an apicoectomy, the root tip, or apex, is removed along with the infected tissue. A filling is then placed to seal the end of the root.</p>
             </div>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Set an Appointment
+            </button>
+            <button type="button" class="btn btn-primary"><a href="services.php">Back</a>
+            </button>
 
+            <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Set an Appointment</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                    </div>
+                    <form action="oralsurgery.php" method="POST">
+                        <div class="mb-3">
+                            <label for="name">Fullname:</label>
+                            <input type="text" class="form-control" id="form-control" placeholder="Fullname" name="name" value="" required>
+                        </div>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="message"></textarea>
+                            <label for="floatingTextarea2">Message:</label>
+                        </div>
+                        <label for="services">Rate(1-5):</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Rate Me</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <label for="services">Preferred Dentistry:</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Preferred Dentistry</option>
+                            <option value="Dr. Haslaine P. Caunda">Dr. Haslaine P. Caunda</option>
+                            <option value="Dr. Ashylle Anne Dime">Dr. Ashylle Anne Dime</option>
+                            <option value="Dr. Jamvit Cajaban">Dr. Jamvit Cajaban</option>
+                            <option value="Dr. Joezette Talaue">Dr. Joezette Talaue</option>
+                        </select>
+                        <div class="mb-3">
+                            <label for="date">Preferred Date:</label>
+                            <input type="date" class="form-control" id="form-control" placeholder="Preferred Date" name="date" value="" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="time">Preferred Time:</label>
+                            <input type="time" class="form-control" id="form-control" placeholder="Preferred Time" name="time" value="" required>
+                        </div>
+                        <label for="services">Services:</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Preferred Services</option>
+                            <option value="Dental Implants">Dental Implants</option>
+                            <option value="Bone Grafting">Bone Grafting</option>
+                            <option value="Surgical Extraction">Surgical Extraction</option>
+                            <option value="Supernumerary Tooth Removal">Supernumerary Tooth Removal</option>
+                            <option value="Deciduous Tooth Remova">Deciduous Tooth Removal</option>
+                            <option value="Odontectomy Odontectomy">Odontectomy Odontectomy</option>
+                            <option value="Frenectomy Frenectomy">Frenectomy Frenectomy</option>
+                            <option value="Oral and Maxillofacial Surgery">Oral and Maxillofacial Surgery</option>
+                        </select>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
+                    <button type="button" class="btn btn-primary">Save an Appointment</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    var exampleModal = document.getElementById('exampleModal')
-        exampleModal.addEventListener('show.bs.modal', function (event) {
-            // Button that triggered the modal
-                var button = event.relatedTarget
-                // Extract info from data-bs-* attributes
-                var recipient = button.getAttribute('data-bs-whatever')
-                // If necessary, you could initiate an AJAX request here
-                // and then do the updating in a callback.
-                //
-                // Update the modal's content.
-                var modalTitle = exampleModal.querySelector('.modal-title')
-                var modalBodyInput = exampleModal.querySelector('.modal-body input')
-                modalTitle.textContent = 'New message to ' + recipient
-                modalBodyInput.value = recipient
-            });
-        </script>
+<section class="footer">
+        <div class="footer-desc">
+            <div class="footer-about">
+                <h1>Zafreen Dental Center</h1>
+                <p>155 Urbano Velasco Ave. Pinagbuhatan, Pasig City</p>
+            </div>
+            <div class="footer-links">
+                <h1>Working Hours</h1>
+                <p>Monday - Sunday
+                <br>9:00AM - 6:00PM</p>
+            </div>
+            <div class="footer-contact">
+                <h1>Social Media</h1>
+                <i class="fa-brands fa-facebook"></i><a href="#">Zafreen Dental Center</a><br>
+                <i class="fa-solid fa-phone"></i><a href="#">09171334272 || 09437074760</a><br>
+                <i class="fa-solid fa-envelope"></i><a href="#">zafreendentalcenter@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var myModal = document.getElementById('myModal')
+        var myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', function () {
+        myInput.focus()
+        })
+    </script>
 </body>
 </html>
