@@ -64,9 +64,9 @@
             
             <nav class="navbar">
                 <a href="index.php">Home</a>
-                <a href="about.php">About</a>
+                <a href="about.php">About Us</a>
                 <a href="services.php">Services</a>
-                <a href="appoint.php">Make an Appointment</a>
+                <a href="appointment.php">Make an Appointment</a>
                 <a href="contact.php">Contact Us</a>
                 <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
                 <div class="logout">
@@ -86,6 +86,7 @@
                 <div class="contact-quote">
                     <h1>Get a Quote</h1>
                     <p>Fill up the form and our Team will get back<br>to you within 24 hours.</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d965.4422630017443!2d121.09057842918516!3d14.555195299364462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c7468aaa48c5%3A0x928a2fd1f18b360!2sZafreen%20Dental%20Center!5e0!3m2!1sen!2sph!4v1670051360463!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <div class="contact-info">
                         <i class="fa-solid fa-phone"></i>+639171334272 | +639437074768<br>
                         <i class="fa-solid fa-envelope"></i>zafreendentalcenter@gmail.com<br>

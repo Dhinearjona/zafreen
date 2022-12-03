@@ -41,7 +41,7 @@ if (!isset($_SESSION['username'])) {
 
             <nav class="navbar">
                 <a href="index.php">Home</a>
-                <a href="about.php">About</a>
+                <a href="about.php">About Us</a>
                 <a href="services.php">Services</a>
                 <a href="appoint.php">Make an Appointment</a>
                 <a href="contact.php">Contact Us</a>
@@ -56,43 +56,57 @@ if (!isset($_SESSION['username'])) {
     <div class="cover">
         <div class="cover-desc">
             <h1>Welcome to Zafreen Dental Center</h1>
+            <h3>Cosmetics and Orthondontics</h3>
             <p>Here to fix your teeth and give confidence with your smile.</p>
             <a href="contact.html">Get in Touch</a>
             <a href="appoint.html" class="btn2">Make an Appointment</a>
         </div>
     </div>
 
-    <section class="footer">
-        <div class="footer-desc">
-            <div class="footer-about">
-                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore labore distinctio in veniam ut voluptatem reiciendis ab quibusdam, amet, error porro, debitis nobis. Modi ex aut pariatur tempora dolores vel.</span>
-            <div class="footer-links">
-                <h4>Agciotech</h4>
-                <hr>
-                <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="news.html">News</a>
-                <a href="connection.php">Contact Us</a>
-            </div>
-            <div class="footer-contact">
-                <h4>Contact Us</h4>
-                <hr>
-                <p>+639055444434</p>
-                <p>info@agciotech.com</p>
-                <p>201 General Mc Arthur Avenue, Cubao, Quezon City, Metro Manila</p>
-            </div>
+    <div class="choose">
+        <div class="choose-desc">
+            <h1>Why Choose Zafreen Dental Center</h1>
+            <p>We provide a comprehensive range of general dentistry services as well as cosmetics treatment like invisalign (invisalign braces). tooth whitening, and oral hygiene services. We take the time to listen to you and promise to deliver our treatment in a gentle and comfortable manner. Our practice is built or customer satisfaction.</p>
         </div>
-        <div class="foot">
-            <p>Copyright © 2022 <b>AGCIOTECH IT SERVICES</b> All Rights Reserved. Proudly Created by: <a href="https://www.facebook.com/Dhinedevs" target="_blank">Frank Devs</a></p>
-            <div class="social">
-                <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        <div class="choose-card">
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <h2>Mission</h2>
+                        <p>To provide the highest quality and affordable dental service to patient with compassionate care.</p>
+                    </div>
+                    <div class="card">
+                        <h2>Vision</h2>
+                        <p>To continuously help people to have new, education and research to established quality dental practice.</p>
+                    </div>
+                    <div class="card">
+                        <h2>Values</h2>
+                        <p>Providing trust expertise care and comfortable and friendly environment for our patients and staff members.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</section>
+
+    <section class="footer">
+        <div class="footer-desc">
+            <div class="footer-about">
+                <h1>Zafreen Dental Center</h1>
+                <p>155 Urbano Velasco Ave. Pinagbuhatan, Pasig City</p>
+            </div>
+            <div class="footer-links">
+                <h1>Working Hours</h1>
+                <p>Monday - Sunday
+                <br>9:00AM - 6:00PM</p>
+            </div>
+            <div class="footer-contact">
+                <h1>Social Media</h1>
+                <i class="fa-brands fa-facebook"></i><a href="#">Zafreen Dental Center</a><br>
+                <i class="fa-solid fa-phone"></i><a href="#">09171334272 || 09437074760</a><br>
+                <i class="fa-solid fa-envelope"></i><a href="#">zafreendentalcenter@gmail.com</a>
+            </div>
+        </div>
+    </section>
     
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>

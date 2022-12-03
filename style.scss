@@ -16,8 +16,15 @@
 
         h1 {
             font-size: var(--h1);
+            text-transform: uppercase;
             color: var(--purple);
             font-weight: 800;
+        }
+
+        h3 {
+            font-size: var(--h2);
+            font-weight: 800;
+            color: var(--white);
         }
 
         p {
@@ -49,6 +56,57 @@
         .btn2:hover {
             background-color: transparent;
             color: var(--pink);
+        }
+    }
+}
+
+.choose {
+    padding: 10rem 10%;
+
+    .choose-desc {
+        text-align: center;
+
+        h1 {
+            font-size: var(--h1);
+            font-weight: 800;
+            margin-top: 1rem;
+            color: var(--purple);
+        }
+
+        p {
+            font-size: var(--p);
+            margin-top: 1rem;
+        }
+    }
+
+    .choose-card {
+
+        .row {
+
+            .column {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                .card {
+                    text-align: center;
+                    margin: 1rem 1rem;
+                    width: 25rem;
+                    padding: 1rem 1rem;
+                    border-radius: 20px;
+
+                    h2 {
+                        font-size: var(--h2);
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        color: var(--purple);
+                    }
+
+                    p {
+                        font-size: var(--p);
+                    }
+                }
+            }
         }
     }
 }

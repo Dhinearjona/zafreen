@@ -40,9 +40,9 @@ if (!isset($_SESSION['username'])) {
 
             <nav class="navbar">
                 <a href="index.php">Home</a>
-                <a href="about.php">About</a>
+                <a href="about.php">About Us</a>
                 <a href="services.php">Services</a>
-                <a href="appoint.php">Make an Appointment</a>
+                <a href="appointment.php">Make an Appointment</a>
                 <a href="contact.php">Contact Us</a>
                 <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
                 <div class="logout">
@@ -52,5 +52,35 @@ if (!isset($_SESSION['username'])) {
         </section>
     </header>
 
+    <div class="appoint">
+        <div class="appoint-desc">
+            <h1>Make an Appointment</h1>
+            <p>Create an account and book your first appointment today to experience quality and safe dental journey. Get best dental treatment with a click.</p>
+            <a href="#">Make an Appointment</a>
+        </div>
+    </div>
+
+    <section class="footer">
+        <div class="footer-desc">
+            <div class="footer-about">
+                <h1>Zafreen Dental Center</h1>
+                <p>155 Urbano Velasco Ave. Pinagbuhatan, Pasig City</p>
+            </div>
+            <div class="footer-links">
+                <h1>Working Hours</h1>
+                <p>Monday - Sunday
+                <br>9:00AM - 6:00PM</p>
+            </div>
+            <div class="footer-contact">
+                <h1>Social Media</h1>
+                <i class="fa-brands fa-facebook"></i><a href="#">Zafreen Dental Center</a><br>
+                <i class="fa-solid fa-phone"></i><a href="#">09171334272 || 09437074760</a><br>
+                <i class="fa-solid fa-envelope"></i><a href="#">zafreendentalcenter@gmail.com</a>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
