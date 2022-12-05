@@ -41,15 +41,13 @@
   color: var(--purple);
   font-size: 36px;
 }
-.content .btn-primary {
-  background-color: var(--purple);
-  border: 1px solid var(--purple);
-  transition: 0.5s ease;
+
+.appointment {
+  padding: 5rem 15%;
 }
-.content .btn-primary a {
-  color: var(--white);
-  text-decoration: none;
-}
-.content .btn-primary:hover {
-  background-color: var(--pink);
+.appointment .appointment-form .form h1 {
+  font-size: var(--h1);
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--purple);
 }

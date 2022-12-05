@@ -49,19 +49,21 @@
             font-size: 36px;
         }
     }
+}
 
-    .btn-primary {
-        background-color: var(--purple);
-        border: 1px solid var(--purple);
-        transition: 0.5s ease;
+.appointment {
+    padding: 5rem 15%;
 
-        a {
-            color: var(--white);
-            text-decoration: none;
+    .appointment-form {
+
+        .form {
+
+            h1 {
+                font-size: var(--h1);
+                text-transform: uppercase;
+                font-weight: 800;
+                color: var(--purple);
+            }
         }
-    }
-
-    .btn-primary:hover {
-        background-color: var(--pink);
     }
 }

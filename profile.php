@@ -2,8 +2,9 @@
 include 'connection.php';
 session_start();
 
-if (!isset($_SESSION['username'])) {
-    header("Location: index.php");
+if (!isset($_SESSION["username"])) {
+    header("Location: login.php");
+    exit();
 }
 
 if(isset($_SESSION['username'], $_SESSION['password'])) {
@@ -38,9 +39,9 @@ if(isset($_SESSION['username'], $_SESSION['password'])) {
 
             <nav class="navbar">
                 <a href="index.php">Home</a>
-                <a href="about.php">About</a>
+                <a href="about.php">About Us</a>
                 <a href="services.php">Services</a>
-                <a href="appoint.php">Make an Appointment</a>
+                <a href="appointment.php">Make an Appointment</a>
                 <a href="contact.php">Contact Us</a>
                 <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
                 <div class="logout">

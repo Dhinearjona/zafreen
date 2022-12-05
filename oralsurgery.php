@@ -1,11 +1,28 @@
 <?php 
+    require "connection.php";
+    session_start();
 
-session_start();
+    if (!isset($_SESSION["username"])) {
+        header("Location: login.php");
+        exit();
+    }
 
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-}
+    if(isset($_POST['submit'])) {
+        $name = $_POST['name'];
+        $message = $_POST['message'];
+        $rates = $_POST['rates'];
+        $prefdentistry = $_POST['prefdentistry'];
+        $date = $_POST['date'];
+        $time = $_POST['time'];
+        $services = $_POST['services'];
 
+        $sql = "INSERT INTO `appointment` (`name`,`message`,`rates`,`prefdentistry`,`date`,`time`,`services`) VALUES ('$name','$message','$rates','$prefdentistry','$date','$time','$services')";
+        if($query = $conn->query($sql)) {
+            echo "<script>alert('Appointment Submitted Successfully.')</script>";
+        }else{
+            echo $conn->error;
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -59,50 +76,40 @@ if (!isset($_SESSION['username'])) {
             <div class="content-desc">
                 <h1>Oral Surgery</h1>
                 <img src="img/oral.jpg" />
-                <p>The area of dentistry concerned with correcting problems or damage to the mouth, teeth, and jaw. Oral Surgery is commonly performed to remove wisdom teeth, prepare the mouth for dentures, and repair jaw problems. Oral Surgeons may also perform more advanced procedures as required after traumaor severe disease damages in the structure of the mouth.
+                <p>The branch of dentistry that deals with problems or damage to the mouth, teeth, and jaw. Oral surgery is frequently used to extract wisdom teeth, prepare the mouth for dentures, and repair jaw problems. Oral Surgeons may also perform more advanced procedures as needed following trauma or severe disease damage to the mouth structure.
                 <br><br>
-                <b>Dental Implants</b> - Dental implant surgery is a procedure that replaces missing or damaged teeth with artificial teeth that look and feel like the real ones. It replaces tooth roots with metal, screw-like posts. The surgery is a welcome alternative to dentures or bridgework that don't fit well. It is also a leading choice for patients who want to stop using dentures.
+                <b>Dental Implants</b> - a procedure that replaces missing or damaged teeth with artificial teeth that look and feel like the real ones. It uses metal screw-like posts to replace tooth roots.
                 <br><br>
-                <b>Bone Grafting</b> - When it comes to dental implants and surgery, there are numerous instances wherein the dentist has to perform a bone graft, or the addition of bone amount in a patient's jaw. It is used to enhance the dental ridge to ensure stability of the dental implant. The bone graft may require a separate surgery if a large amount of the dental ridge must be changed, or be performed alongside the implant procedure if only minute changes will be applied.
+                <b>Bone Grafting</b> - When it comes to dental implants and surgery, there are numerous instances wherein the dentist has to perform a bone graft or the addition of bone amount in a patient's jaw. It is used to enhance the dental ridge to ensure the stability of the dental implant.
                 <br><br>
-                <b>Surgical Extraction</b> - Surgical extraction is needed when there are some complications during a simple tooth extraction. In such cases, the dentist would have to give the patient general anesthesia. There are two common types of surgical extraction:
+                <b>Surgical Extraction</b> - Surgical extraction is needed when complications occur during a simple tooth extraction. In such cases, the dentist must give the patient general anesthesia. There are two common types of surgical extraction:
                 <br><br>
-                <b>Supernumerary Tooth Removal</b> - An adult's normal teeth structure is comprised of 32 teeth. In cases of supernumerary tooth, more than 32 teeth are present within the dental arch. The treatment and removal of this tooth would depend on its position and effect on nearby teeth.
+                <b>Supernumerary Tooth Removal</b> - An adult's normal teeth structure is comprised of 32 teeth. In cases of supernumerary teeth, more than 32 teeth are present within the dental arch. The treatment and removal of this tooth would depend on its position and effect on nearby teeth.
                 <br><br>
                 <b>Deciduous Tooth Removal</b> - Deciduous teeth refer to "baby teeth" or the 20 teeth that began erupting from infancy to early childhood. In case the baby tooth does not shed on its own, dentists would have to remove it to facilitate the growth of permanent teeth.
                 <br><br>
-                <b>Odontectomy Odontectomy</b> - refers to the surgical removal of a tooth that is partially or totally embedded in the bone. Dentists will have to remove the bone that surrounds the teeth before they can force extraction. Sutures and stitches are often applied to facilitate faster recovery. The removal of third molars or wisdom teeth are common examples of odontectomy.
+                <b>Odontectomy</b> - refers to the surgical removal of a tooth that is partially or totally embedded in the bone. Dentists will have to remove the bone that surrounds the teeth before they can force extraction. Sutures and stitches are often applied to facilitate faster recovery. The removal of third molars or wisdom teeth is a common example of odontectomy.
                 <br><br>
-                <b>Frenectomy Frenectomy</b> - refers to the removal of frenum or the muscular attachment between tissues. The lingual frenum is the thin membrane that connects the back of the tongue with the floor of the mouth.
+                <b>Frenectomy</b> - refers to the removal of the frenum or the muscular attachment between tissues. The lingual frenum is the thin membrane that connects the back of the tongue with the floor of the mouth.
                 <br><br>
                 <b>Oral and Maxillofacial Surgery</b> - combines oral surgery with surgery on the structures of the face, sinuses, and neck.</p>
             </div>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Set an Appointment
-            </button>
-            <button type="button" class="btn btn-primary"><a href="services.php">Back</a>
-            </button>
+        </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Set an Appointment</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="oralsurgery.php" method="POST">
-                        <div class="mb-3">
+        <div class="appointment">
+            <div class="appointment-form">
+            <form action="appointment.php" method="POST" class="form">
+                    <h1>Set an Appointment</h1>
+                    <div class="mb-3">
                             <label for="name">Fullname:</label>
-                            <input type="text" class="form-control" id="form-control" placeholder="Fullname" name="name" value="" required>
+                            <input type="text" class="form-control" id="form-control" placeholder="Fullname" name="name" required>
                         </div>
                         <div class="form-floating">
                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="message"></textarea>
                             <label for="floatingTextarea2">Message:</label>
                         </div>
                         <label for="services">Rate(1-5):</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="rates">
                             <option selected>Rate Me</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -111,7 +118,7 @@ if (!isset($_SESSION['username'])) {
                             <option value="5">5</option>
                         </select>
                         <label for="services">Preferred Dentistry:</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="prefdentistry">
                             <option selected>Preferred Dentistry</option>
                             <option value="Dr. Haslaine P. Caunda">Dr. Haslaine P. Caunda</option>
                             <option value="Dr. Ashylle Anne Dime">Dr. Ashylle Anne Dime</option>
@@ -120,36 +127,32 @@ if (!isset($_SESSION['username'])) {
                         </select>
                         <div class="mb-3">
                             <label for="date">Preferred Date:</label>
-                            <input type="date" class="form-control" id="form-control" placeholder="Preferred Date" name="date" value="" required>
+                            <input type="date" class="form-control" id="form-control" placeholder="Preferred Date" name="date" required>
                         </div>
                         <div class="mb-3">
                             <label for="time">Preferred Time:</label>
-                            <input type="time" class="form-control" id="form-control" placeholder="Preferred Time" name="time" value="" required>
+                            <input type="time" class="form-control" id="form-control" placeholder="Preferred Time" name="time" required>
                         </div>
                         <label for="services">Services:</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="services">
                             <option selected>Preferred Services</option>
                             <option value="Dental Implants">Dental Implants</option>
                             <option value="Bone Grafting">Bone Grafting</option>
                             <option value="Surgical Extraction">Surgical Extraction</option>
                             <option value="Supernumerary Tooth Removal">Supernumerary Tooth Removal</option>
                             <option value="Deciduous Tooth Remova">Deciduous Tooth Removal</option>
-                            <option value="Odontectomy Odontectomy">Odontectomy Odontectomy</option>
-                            <option value="Frenectomy Frenectomy">Frenectomy Frenectomy</option>
+                            <option value="Odontectomy Odontectomy">Odontectomy</option>
+                            <option value="Frenectomy Frenectomy">Frenectomy</option>
                             <option value="Oral and Maxillofacial Surgery">Oral and Maxillofacial Surgery</option>
                         </select>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save an Appointment</button>
-                </div>
+                    <div>
+                        <button type="submit" class="btn" name="submit">Submit an Appointment</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
-</div>
 
-<section class="footer">
+        <section class="footer">
         <div class="footer-desc">
             <div class="footer-about">
                 <h1>Zafreen Dental Center</h1>
@@ -177,6 +180,7 @@ if (!isset($_SESSION['username'])) {
         myModal.addEventListener('shown.bs.modal', function () {
         myInput.focus()
         })
+
     </script>
 </body>
 </html>
