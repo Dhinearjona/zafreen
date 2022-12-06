@@ -7,6 +7,23 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 
+if(isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $message = $_POST['message'];
+    $rates = $_POST['rates'];
+    $prefdentistry = $_POST['prefdentistry'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $services = $_POST['services'];
+
+    $sql = "INSERT INTO `appointment` (`name`,`message`,`rates`,`prefdentistry`,`date`,`time`,`services`) VALUES ('$name','$message','$rates','$prefdentistry','$date','$time','$services')";
+    if($query = $conn->query($sql)) {
+        echo "<script>alert('Appointment Submitted Successfully.')</script>";
+    }else{
+        echo $conn->error;
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +36,7 @@ if (!isset($_SESSION["username"])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="content.css">
+    <link rel="stylesheet" href="contservices.css">
     <title>Endodontics - Zafreen Dental Clinic</title>
 </head>
 <body>
@@ -37,19 +54,19 @@ if (!isset($_SESSION["username"])) {
 
         <header class="header">
             <section class="flex">
-                <a href="index.html" class="logo"><img src="img/logo.png" /></a>
+                <a href="index.php" class="logo"><img src="img/logo.png" /></a>
 
                 <nav class="navbar">
-                <a href="index.php">Home</a>
-                <a href="about.php">About</a>
-                <a href="services.php">Services</a>
-                <a href="appoint.php">Make an Appointment</a>
-                <a href="contact.php">Contact Us</a>
-                <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
-                <div class="logout">
-                    <a href="logout.php">Logout</a>
-                </div>
-            </nav>
+                    <a href="index.php">Home</a>
+                    <a href="about.php">About Us</a>
+                    <a href="services.php">Services</a>
+                    <a href="appointment.php">Make an Appointment</a>
+                    <a href="contact.php">Contact Us</a>
+                    <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
+                    <div class="logout">
+                        <a href="logout.php">Logout</a>
+                    </div>
+                </nav>
             </section>
         </header>
 
@@ -66,33 +83,23 @@ if (!isset($_SESSION["username"])) {
                 <b>Apicoectomy</b> - During root canal treatment, your dentist cleans the canals using special instruments called files. Inflamed or infected tissue is removed. An apicoectomy may be needed when an infection develops or won't go away after root canal treatment or retreatment.
                 <br><br>
                 Root canals can be very complex, with many tiny branches off the main canal. Sometimes, even after root canal treatment, infected tissue can remain in these branches. This can possibly prevent healing or cause re-infection later. In an apicoectomy, the root tip, or apex, is removed along with the infected tissue. A filling is then placed to seal the end of the root.</p>
-            </div>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Set an Appointment
-            </button>
-            <button type="button" class="btn btn-primary"><a href="services.php">Back</a>
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Set an Appointment</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form action="oralsurgery.php" method="POST">
-                        <div class="mb-3">
+        </div>
+
+        <div class="appointment">
+            <div class="appointment-form">
+            <form action="oralsurgery.php" method="POST" class="form">
+                    <h1>Set an Appointment</h1>
+                    <div class="mb-3">
                             <label for="name">Fullname:</label>
-                            <input type="text" class="form-control" id="form-control" placeholder="Fullname" name="name" value="" required>
+                            <input type="text" class="form-control" id="form-control" placeholder="Fullname" name="name" required>
                         </div>
                         <div class="form-floating">
                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="message"></textarea>
                             <label for="floatingTextarea2">Message:</label>
                         </div>
                         <label for="services">Rate(1-5):</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="rates">
                             <option selected>Rate Me</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -101,7 +108,7 @@ if (!isset($_SESSION["username"])) {
                             <option value="5">5</option>
                         </select>
                         <label for="services">Preferred Dentistry:</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="prefdentistry">
                             <option selected>Preferred Dentistry</option>
                             <option value="Dr. Haslaine P. Caunda">Dr. Haslaine P. Caunda</option>
                             <option value="Dr. Ashylle Anne Dime">Dr. Ashylle Anne Dime</option>
@@ -110,36 +117,25 @@ if (!isset($_SESSION["username"])) {
                         </select>
                         <div class="mb-3">
                             <label for="date">Preferred Date:</label>
-                            <input type="date" class="form-control" id="form-control" placeholder="Preferred Date" name="date" value="" required>
+                            <input type="date" class="form-control" id="form-control" placeholder="Preferred Date" name="date" required>
                         </div>
                         <div class="mb-3">
                             <label for="time">Preferred Time:</label>
-                            <input type="time" class="form-control" id="form-control" placeholder="Preferred Time" name="time" value="" required>
+                            <input type="time" class="form-control" id="form-control" placeholder="Preferred Time" name="time" required>
                         </div>
                         <label for="services">Services:</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="services">
                             <option selected>Preferred Services</option>
-                            <option value="Dental Implants">Dental Implants</option>
-                            <option value="Bone Grafting">Bone Grafting</option>
-                            <option value="Surgical Extraction">Surgical Extraction</option>
-                            <option value="Supernumerary Tooth Removal">Supernumerary Tooth Removal</option>
-                            <option value="Deciduous Tooth Remova">Deciduous Tooth Removal</option>
-                            <option value="Odontectomy Odontectomy">Odontectomy Odontectomy</option>
-                            <option value="Frenectomy Frenectomy">Frenectomy Frenectomy</option>
-                            <option value="Oral and Maxillofacial Surgery">Oral and Maxillofacial Surgery</option>
+                            <option value="Apicoectomy">Apicoectomy</option>
                         </select>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save an Appointment</button>
-                </div>
+                    <div>
+                        <button type="submit" class="btn" name="submit">Submit an Appointment</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
-</div>
 
-<section class="footer">
+        <section class="footer">
         <div class="footer-desc">
             <div class="footer-about">
                 <h1>Zafreen Dental Center</h1>
@@ -167,6 +163,7 @@ if (!isset($_SESSION["username"])) {
         myModal.addEventListener('shown.bs.modal', function () {
         myInput.focus()
         })
+
     </script>
 </body>
 </html>

@@ -1,12 +1,10 @@
 <?php 
 
 include 'connection.php';
-
 error_reporting(0);
-
 session_start();
 
-if (!isset($_SESSION["username"])) {
+if (isset($_SESSION["username"])) {
     header("Location: login.php");
     exit();
 }
@@ -81,13 +79,13 @@ if (isset($_POST['submit'])) {
 
     <header class="header">
         <section class="flex">
-            <a href="index.html" class="logo"><img src="img/logo.png" /></a>
+            <a href="index.php" class="logo"><img src="img/logo.png" /></a>
 
             <nav class="navbar">
                 <a href="index.php">Home</a>
-                <a href="about.php">About</a>
+                <a href="about.php">About Us</a>
                 <a href="services.php">Services</a>
-                <a href="appoint.php">Make an Appointment</a>
+                <a href="appointment.php">Make an Appointment</a>
                 <a href="contact.php">Contact Us</a>
                 <a href="login.php" class="btnLogin">Login</a>
             </nav>
@@ -136,7 +134,6 @@ if (isset($_POST['submit'])) {
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary" name="submit">Submit</button><br>
-                <a href="fpassword.php">Forgot Password</a> |
                 <a href="login.php">Login</a>
             </form>
         </div>

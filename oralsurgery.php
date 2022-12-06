@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="content.css">
+    <link rel="stylesheet" href="contservices.css">
     <title>Oral Surgery - Zafreen Dental Clinic</title>
 </head>
 <body>
@@ -52,19 +52,19 @@
 
         <header class="header">
             <section class="flex">
-                <a href="index.html" class="logo"><img src="img/logo.png" /></a>
+                <a href="index.php" class="logo"><img src="img/logo.png" /></a>
 
                 <nav class="navbar">
-                <a href="index.php">Home</a>
-                <a href="about.php">About Us</a>
-                <a href="services.php">Services</a>
-                <a href="appointment.php">Make an Appointment</a>
-                <a href="contact.php">Contact Us</a>
-                <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
-                <div class="logout">
-                    <a href="logout.php">Logout</a>
-                </div>
-            </nav>
+                    <a href="index.php">Home</a>
+                    <a href="about.php">About Us</a>
+                    <a href="services.php">Services</a>
+                    <a href="appointment.php">Make an Appointment</a>
+                    <a href="contact.php">Contact Us</a>
+                    <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
+                    <div class="logout">
+                        <a href="logout.php">Logout</a>
+                    </div>
+                </nav>
             </section>
         </header>
 
@@ -75,7 +75,7 @@
             </div>
             <div class="content-desc">
                 <h1>Oral Surgery</h1>
-                <img src="img/oral.jpg" />
+                <img src="img/oral.png" />
                 <p>The branch of dentistry that deals with problems or damage to the mouth, teeth, and jaw. Oral surgery is frequently used to extract wisdom teeth, prepare the mouth for dentures, and repair jaw problems. Oral Surgeons may also perform more advanced procedures as needed following trauma or severe disease damage to the mouth structure.
                 <br><br>
                 <b>Dental Implants</b> - a procedure that replaces missing or damaged teeth with artificial teeth that look and feel like the real ones. It uses metal screw-like posts to replace tooth roots.
@@ -98,7 +98,7 @@
 
         <div class="appointment">
             <div class="appointment-form">
-            <form action="appointment.php" method="POST" class="form">
+            <form action="oralsurgery.php" method="POST" class="form">
                     <h1>Set an Appointment</h1>
                     <div class="mb-3">
                             <label for="name">Fullname:</label>
@@ -140,7 +140,7 @@
                             <option value="Bone Grafting">Bone Grafting</option>
                             <option value="Surgical Extraction">Surgical Extraction</option>
                             <option value="Supernumerary Tooth Removal">Supernumerary Tooth Removal</option>
-                            <option value="Deciduous Tooth Remova">Deciduous Tooth Removal</option>
+                            <option value="Deciduous Tooth Removal">Deciduous Tooth Removal</option>
                             <option value="Odontectomy Odontectomy">Odontectomy</option>
                             <option value="Frenectomy Frenectomy">Frenectomy</option>
                             <option value="Oral and Maxillofacial Surgery">Oral and Maxillofacial Surgery</option>

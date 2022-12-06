@@ -1,13 +1,8 @@
 <?php 
+
 include 'connection.php';
+error_reporting(0);
 session_start();
-
-if (!isset($_SESSION["username"])) {
-    header("Location: login.php");
-    exit();
-}
-
-if(isset($_SESSION['username'], $_SESSION['password'])) {
 
 ?>
 
@@ -15,8 +10,13 @@ if(isset($_SESSION['username'], $_SESSION['password'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="profile.css">
     <title>Profile - Zafreen Dental Clinic</title>
 </head>
@@ -35,7 +35,7 @@ if(isset($_SESSION['username'], $_SESSION['password'])) {
 
     <header class="header">
         <section class="flex">
-            <a href="index.html" class="logo"><img src="img/logo.png" /></a>
+            <a href="index.php" class="logo"><img src="img/logo.png" /></a>
 
             <nav class="navbar">
                 <a href="index.php">Home</a>
@@ -57,45 +57,52 @@ if(isset($_SESSION['username'], $_SESSION['password'])) {
             <h1>User Profile</h1>
         </div>
         <div class="account-desc">
-            <form action="profile.php" method="POST">
+        <form action="profile.php" method="POST">
+            <?php
+                $username = $_SESSION['username'];
+                $query = "SELECT * FROM tblregister WHERE username='$username'";
+                $query_run = mysqli_query($conn, $query);
+
+                if(mysqli_num_rows($query_run) > 0) 
+                {
+                    foreach($query_run as $row)
+                    {
+            ?>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="form-control" name="name" style="display:none;" value="<?php echo $row['id']; ?>" disabled>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="form-control" name="name" value="<?php echo $row['fullname']; ?>" disabled>
+                </div>
+                <div class="mb-3">
+                    <input type="date" class="form-control" id="form-control" name="birthday" value="<?php echo $row['birthday']; ?>" disabled>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="form-control" name="gender" value="<?php echo $row['gender']; ?>" disabled>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="form-control" name="address" value="<?php echo $row['address']; ?>" disabled>
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="form-control" name="phone" value="<?php echo $row['phone']; ?>" disabled>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="form-control" name="email" value="<?php echo $row['email']; ?>" disabled>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="form-control" name="username" value="<?php echo $row['username']; ?>" disabled>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="form-control" name="password" value="<?php echo $row['password']; ?>" disabled>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="form-control" name="account" value="<?php echo $row['account']; ?>" disabled>
+                </div>
+            </form>
             <?php 
-                $query = "SELECT * FROM tblregister WHERE username = '".$_SESSION['username']."' AND password = '".$_SESSION['password']."'";
-                if($result = mysqli_query($conn, $query)) {
-
-                    $row = mysqli_fetch_assoc($result);
-
-                    echo "<div class='info'><strong>Fullname:</strong> <span>".$row['fullname']."</span></div>";
-                    echo "<div class='info'><strong>Birthday:</strong> <span>".$row['birthday']."</span></div>";
-                    echo "<div class='info'><strong>Gender:</strong> <span>".$row['gender']."</span></div>";
-                    echo "<div class='info'><strong>Address:</strong> <span>".$row['address']."</span></div>";
-                    echo "<div class='info'><strong>Phone Number:</strong> <span>".$row['phone']."</span></div>";
-                    echo "<div class='info'><strong>Email Address:</strong> <span>".$row['email']."</span></div>";
-                    echo "<div class='info'><strong>Username:</strong> <span>".$row['username']."</span></div>";
-                    echo "<div class='info'><strong>Password:</strong> <span>".$row['password']."</span></div>";
-                    echo "<div class='info'><strong>Account:</strong> <span>".$row['account']."</span></div>";
-                    ?>
-                    <br>
-                    <?php
-
-                    $row = mysqli_fetch_row($result);
-
-                } else {
-
-                    die("Error with the query in the database");
-
+                    }
                 }
             ?>
-                </form>
-            </div>
         </div>
     </div>
-
-
-    <?php
-        } else {
-        header("location:index.php");
-        exit;
-        }
-        unset($_SESSION['prompt']);
-        mysqli_close($conn);
-        ?>
+</div>

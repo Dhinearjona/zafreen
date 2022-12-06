@@ -1,7 +1,7 @@
 @import url("header.css");
 @import url("footer.css");
 .appoint {
-  padding: 14rem 10%;
+  padding: 5rem 10%;
 }
 .appoint .appoint-desc {
   text-align: center;
@@ -25,4 +25,22 @@
 }
 .appoint .appoint-desc a:hover {
   background-color: var(--pink);
+}
+
+.appointment {
+  padding: 3rem 15%;
+}
+.appointment .appointment-form .form h1 {
+  font-size: var(--h1);
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--purple);
+}
+.appointment .appointment-form .form label {
+  margin: 0.5rem 0;
+}
+.appointment .appointment-form .form .btn {
+  margin-top: 1.5rem;
+  background-color: var(--purple);
+  color: var(--white);
 }

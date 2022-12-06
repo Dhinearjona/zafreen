@@ -7,6 +7,23 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 
+if(isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $message = $_POST['message'];
+    $rates = $_POST['rates'];
+    $prefdentistry = $_POST['prefdentistry'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $services = $_POST['services'];
+
+    $sql = "INSERT INTO `appointment` (`name`,`message`,`rates`,`prefdentistry`,`date`,`time`,`services`) VALUES ('$name','$message','$rates','$prefdentistry','$date','$time','$services')";
+    if($query = $conn->query($sql)) {
+        echo "<script>alert('Appointment Submitted Successfully.')</script>";
+    }else{
+        echo $conn->error;
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +36,7 @@ if (!isset($_SESSION["username"])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="content.css">
+    <link rel="stylesheet" href="contservices.css">
     <title>Orthodontics - Zafreen Dental Clinic</title>
 </head>
 <body>
@@ -37,19 +54,19 @@ if (!isset($_SESSION["username"])) {
 
         <header class="header">
             <section class="flex">
-                <a href="index.html" class="logo"><img src="img/logo.png" /></a>
+                <a href="index.php" class="logo"><img src="img/logo.png" /></a>
 
                 <nav class="navbar">
-                <a href="index.php">Home</a>
-                <a href="about.php">About</a>
-                <a href="services.php">Services</a>
-                <a href="appoint.php">Make an Appointment</a>
-                <a href="contact.php">Contact Us</a>
-                <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
-                <div class="logout">
-                    <a href="logout.php">Logout</a>
-                </div>
-            </nav>
+                    <a href="index.php">Home</a>
+                    <a href="about.php">About Us</a>
+                    <a href="services.php">Services</a>
+                    <a href="appointment.php">Make an Appointment</a>
+                    <a href="contact.php">Contact Us</a>
+                    <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
+                    <div class="logout">
+                        <a href="logout.php">Logout</a>
+                    </div>
+                </nav>
             </section>
         </header>
 
@@ -60,43 +77,33 @@ if (!isset($_SESSION["username"])) {
             </div>
             <div class="content-desc">
                 <h1>Orthodontics</h1>
-                <img src="img/orthodontics.jpg" />
-                <p>A winning smile is best complemented by straight, beautiful teeth. Orthodontics is a branch of dentistry that specializes in this by overseeing the diagnosis, supervision, guidance, and correction of problems involving the alignment of the teeth and jaws. The most common type of orthodontic treatment is the application of braces and retainers. GAOC dentists are experts in the professional application and alignment of these corrective items to help the patient's teeth, lips, and jaws achieve facial balance.
+                <img src="img/orthodontics.png" />
+                <p>A winning smile is best complemented by straight, beautiful teeth. Orthodontics is a branch of dentistry that specializes in this by overseeing the diagnosis, supervision, guidance, and correction of problems involving the alignment of the teeth and jaws. The most common type of orthodontic treatment is the application of braces and retainers.
                 <br><br>
-                <b>Metal braces/Traditional braces</b> - They are made from a high-grade stainless steel and have metal brackets that are attached to each tooth using a type of cement. The brackets are linked to each other with a thin archwire, which puts pressure on the teeth to cause them to move slowly into the correct position.
+                <b>Metal braces/Traditional braces</b> - They are made from high-grade stainless steel and have metal brackets that are attached to each tooth using a type of cement. The brackets are linked to each other with a thin archwire, which puts pressure on the teeth to cause them to move slowly into the correct position.
                 <br><br>
-                <b>Ceramic Braces</b> - Ceramic braces are the same size and shape as metal braces, except that they have tooth-colored or clear brackets that blend in to teeth. Some even use tooth-colored wires to be even less noticeable.
+                <b>Ceramic Braces</b> - Ceramic braces are the same size and shape as metal braces, except that they have tooth-colored or clear brackets that blend into teeth. Some even use tooth-colored wires to be even less noticeable.
                 <br><br>
                 <b>Lingual Braces</b> - Lingual braces are the same as traditional metal braces, except that the brackets and wires are placed on the inside of teeth.
                 <br><br>
-                <b>Invisalign</b> - Invisalign consists of a series of 18 to 30 custom-made, mouth guard-like clear plastic aligners. The aligners are removable and are replaced every 2 weeks.</p>
+                <b>Invisalign</b> - Invisalign consists of a series of 18 to 30 custom-made, mouth-guard-like clear plastic aligners. The aligners are removable and are replaced every 2 weeks.</p>
             </div>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Set an Appointment
-            </button>
-            <button type="button" class="btn btn-primary"><a href="services.php">Back</a>
-            </button>
+        </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Set an Appointment</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="oralsurgery.php" method="POST">
-                        <div class="mb-3">
+        <div class="appointment">
+            <div class="appointment-form">
+            <form action="oralsurgery.php" method="POST" class="form">
+                    <h1>Set an Appointment</h1>
+                    <div class="mb-3">
                             <label for="name">Fullname:</label>
-                            <input type="text" class="form-control" id="form-control" placeholder="Fullname" name="name" value="" required>
+                            <input type="text" class="form-control" id="form-control" placeholder="Fullname" name="name" required>
                         </div>
                         <div class="form-floating">
                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="message"></textarea>
                             <label for="floatingTextarea2">Message:</label>
                         </div>
                         <label for="services">Rate(1-5):</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="rates">
                             <option selected>Rate Me</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -105,7 +112,7 @@ if (!isset($_SESSION["username"])) {
                             <option value="5">5</option>
                         </select>
                         <label for="services">Preferred Dentistry:</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="prefdentistry">
                             <option selected>Preferred Dentistry</option>
                             <option value="Dr. Haslaine P. Caunda">Dr. Haslaine P. Caunda</option>
                             <option value="Dr. Ashylle Anne Dime">Dr. Ashylle Anne Dime</option>
@@ -114,36 +121,28 @@ if (!isset($_SESSION["username"])) {
                         </select>
                         <div class="mb-3">
                             <label for="date">Preferred Date:</label>
-                            <input type="date" class="form-control" id="form-control" placeholder="Preferred Date" name="date" value="" required>
+                            <input type="date" class="form-control" id="form-control" placeholder="Preferred Date" name="date" required>
                         </div>
                         <div class="mb-3">
                             <label for="time">Preferred Time:</label>
-                            <input type="time" class="form-control" id="form-control" placeholder="Preferred Time" name="time" value="" required>
+                            <input type="time" class="form-control" id="form-control" placeholder="Preferred Time" name="time" required>
                         </div>
                         <label for="services">Services:</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="services">
                             <option selected>Preferred Services</option>
-                            <option value="Dental Implants">Dental Implants</option>
-                            <option value="Bone Grafting">Bone Grafting</option>
-                            <option value="Surgical Extraction">Surgical Extraction</option>
-                            <option value="Supernumerary Tooth Removal">Supernumerary Tooth Removal</option>
-                            <option value="Deciduous Tooth Remova">Deciduous Tooth Removal</option>
-                            <option value="Odontectomy Odontectomy">Odontectomy Odontectomy</option>
-                            <option value="Frenectomy Frenectomy">Frenectomy Frenectomy</option>
-                            <option value="Oral and Maxillofacial Surgery">Oral and Maxillofacial Surgery</option>
+                            <option value="Metal braces/Traditional braces">Metal braces/Traditional braces</option>
+                            <option value="Ceramic Braces">Ceramic Braces</option>
+                            <option value="Lingual Braces">Lingual Braces</option>
+                            <option value="Invisalign">Invisalign</option>
                         </select>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save an Appointment</button>
-                </div>
+                    <div>
+                        <button type="submit" class="btn" name="submit">Submit an Appointment</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
-</div>
 
-<section class="footer">
+        <section class="footer">
         <div class="footer-desc">
             <div class="footer-about">
                 <h1>Zafreen Dental Center</h1>
@@ -171,6 +170,7 @@ if (!isset($_SESSION["username"])) {
         myModal.addEventListener('shown.bs.modal', function () {
         myInput.focus()
         })
+
     </script>
 </body>
 </html>

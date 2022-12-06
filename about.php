@@ -37,19 +37,19 @@ if (!isset($_SESSION["username"])) {
 
     <header class="header">
         <section class="flex">
-            <a href="index.html" class="logo"><img src="img/logo.png" /></a>
+                <a href="index.php" class="logo"><img src="img/logo.png" /></a>
 
-            <nav class="navbar">
-                <a href="index.php">Home</a>
-                <a href="about.php">About Us</a>
-                <a href="services.php">Services</a>
-                <a href="appointment.php">Make an Appointment</a>
-                <a href="contact.php">Contact Us</a>
-                <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
-                <div class="logout">
-                    <a href="logout.php">Logout</a>
-                </div>
-            </nav>
+                <nav class="navbar">
+                    <a href="index.php">Home</a>
+                    <a href="about.php">About Us</a>
+                    <a href="services.php">Services</a>
+                    <a href="appointment.php">Make an Appointment</a>
+                    <a href="contact.php">Contact Us</a>
+                    <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
+                    <div class="logout">
+                        <a href="logout.php">Logout</a>
+                    </div>
+                </nav>
         </section>
     </header>
 

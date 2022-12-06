@@ -1,15 +1,11 @@
 <?php
-
+    @include "connection.php";
+    error_reporting(0);
     session_start();
 
-    if(!isset($_SESSION['username']))
+    if(!isset($_SESSION["username"]))
     {
-        header("Location: login.php");
-    }
-
-    elseif($_SESSION['account']=='user')
-    {
-        header("Location: login.php");
+        header("location:login.php");
     }
 
 ?>

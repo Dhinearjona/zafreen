@@ -1,32 +1,35 @@
 <?php 
 
-include 'connection.php';
+    include 'connection.php';
+    error_reporting(0);
+    session_start();
 
-session_start();
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        $username = $_POST['username'];
+        $password = md5($_POST['password']);
 
-error_reporting(0);
+        $sql="SELECT * FROM tblregister WHERE username='".$username."' AND password='".$password."'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($result);
 
-if (!isset($_SESSION["username"])) {
-    header("Location: login.php");
-    exit();
-}
+        if($row["account"]=="User")
+        {	
+            $_SESSION["username"]=$username;
+            header("location:index.php");
+        }
+    
+        elseif($row["account"]=="Admin")
+        {
+            $_SESSION["username"]=$username;
+            header("location:dashboard.php");
+        }
 
-if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $password = md5($_POST['password']);
-
-    $sql = "SELECT * FROM tblregister WHERE username='$username' AND password='$password'";
-    $result = mysqli_query($conn, $sql);
-    if ($result->num_rows > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['username'] = $row['username'];
-        $_SESSION['password'] = $row['password'];
-        header("Location: index.php");
-    } else {
-        echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
-        header("Location: login.php");
+        else
+        {
+            echo "<script>alert('Username or Password incorrect');</script>";
+        }
     }
-}
 ?>
 
 
@@ -63,9 +66,9 @@ if (isset($_POST['submit'])) {
 
             <nav class="navbar">
                 <a href="index.php">Home</a>
-                <a href="about.php">About</a>
+                <a href="about.php">About Us</a>
                 <a href="services.php">Services</a>
-                <a href="appoint.php">Make an Appointment</a>
+                <a href="appointment.php">Make an Appointment</a>
                 <a href="contact.php">Contact Us</a>
                 <a href="login.php" class="btnLogin">Login</a>
             </nav>
@@ -75,7 +78,7 @@ if (isset($_POST['submit'])) {
     <div class="login">
         <div class="login-title">
             <h1>Zafreen Dental Center</h1>
-            <form action="login.php" method="POST">
+            <form action="" method="POST">
                 <div class="mb-3">
                     <input type="text" class="form-control" id="form-control" placeholder="Username" name="username">
                 </div>
@@ -83,7 +86,6 @@ if (isset($_POST['submit'])) {
                     <input type="password" class="form-control" id="form-control" placeholder="Password" name="password">
                 </div>
                 <button type="submit" class="btn btn-primary" name="submit">Submit</button><br>
-                <a href="fpassword.php">Forgot Password</a> |
                 <a href="register.php">Register</a>
             </form>
         </div>

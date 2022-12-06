@@ -38,7 +38,7 @@ if (!isset($_SESSION["username"])) {
 
     <header class="header">
         <section class="flex">
-            <a href="index.html" class="logo"><img src="img/logo.png" /></a>
+            <a href="index.php" class="logo"><img src="img/logo.png" /></a>
 
             <nav class="navbar">
                 <a href="index.php">Home</a>
