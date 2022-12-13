@@ -1,0 +1,106 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #121212;
+    --white: #FFFFFF;
+    --purple: #D600EE;
+    --pink: #FB00C1;
+    --lightgray: #F6F6F6;
+    --darkgray: #616161;
+
+    --h1: 48px;
+    --h2: 36px;
+    --p: 16px;
+    --a: 12px;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+.sidebar{
+    position: fixed;
+    height: 100%;
+    width: 240px;
+    background: var(--darkgray);
+    transition: all 0.5s ease;
+
+    .logo-details {
+        height: 80px;
+        display: flex;
+        align-items: center;
+
+        a {
+            margin-left: .5rem;
+        }
+
+        i {
+            font-size: 28px;
+            font-weight: 500;
+            color: #fff;
+            min-width: 60px;
+            text-align: center
+        }
+
+        .logo_name {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 500;
+
+            img {
+                width: 3rem;
+            }
+        }
+    }
+
+    .nav-links {
+        margin-top: 10px;
+
+        .log_out {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        li {
+            position: relative;
+            list-style: none;
+            height: 50px;
+
+            a {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                transition: all 0.4s ease;
+
+                .links_name {
+                    color: #fff;
+                    font-size: 15px;
+                    font-weight: 400;
+                    white-space: nowrap;
+                }
+            }
+
+            a.active,
+            a:hover {
+                background: var(--pink);
+            }
+
+            i {
+                min-width: 60px;
+                text-align: center;
+                font-size: 18px;
+                color: #fff;
+            }
+        }
+    }
+}

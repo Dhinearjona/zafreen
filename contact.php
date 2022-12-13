@@ -3,9 +3,9 @@
 
     session_start();
 
-    if (!isset($_SESSION["username"])) {
-        header("Location: login.php");
-        exit();
+    if(!empty($_SESSION['username']))
+    {
+        $username = $_SESSION['username'];
     }
 
         if(isset($_POST['submit'])) {
@@ -69,10 +69,7 @@
                 <a href="services.php">Services</a>
                 <a href="appointment.php">Make an Appointment</a>
                 <a href="contact.php">Contact Us</a>
-                <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
-                <div class="logout">
-                    <a href="logout.php">Logout</a>
-                </div>
+                <a href="login.php" class="btnLogin">Login</a>
             </nav>
         </section>
     </header>

@@ -4,9 +4,9 @@ include 'connection.php';
 error_reporting(0);
 session_start();
 
-if (isset($_SESSION["username"])) {
-    header("Location: login.php");
-    exit();
+if(!empty($_SESSION['username']))
+{
+    $username = $_SESSION['username'];
 }
 
 if (isset($_POST['submit'])) {
@@ -129,8 +129,9 @@ if (isset($_POST['submit'])) {
                 <div class="mb-3">
                     <select class="form-select" aria-label="Default select example" name="account" value="<?php echo $account; ?>" required>
                         <option selected>--Select--</option>
-                        <option value="User">User</option>
-                        <option value="Admin">Admin</option>
+                        <option value="Patients">Patients</option>
+                        <option value="Doctors" disabled >Doctors</option>
+                        <option value="Receptionist" disabled >Receptionist</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary" name="submit">Submit</button><br>

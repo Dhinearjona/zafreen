@@ -13,16 +13,22 @@
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($result);
 
-        if($row["account"]=="User")
+        if($row["account"]=="Patients")
         {	
             $_SESSION["username"]=$username;
-            header("location:index.php");
+            echo "<script> alert('Welcome Patient');window.location='dash-patient.php'</script>";
         }
     
-        elseif($row["account"]=="Admin")
+        elseif($row["account"]=="Doctors")
         {
             $_SESSION["username"]=$username;
-            header("location:dashboard.php");
+            echo "<script>alert('Welcome Doctor');window.location='dash-doctor.php'</script>";
+        }
+
+        elseif($row["account"]=="Receptionist")
+        {
+            $_SESSION["username"]=$username;
+            echo "<script>alert('Welcome Receptionist');window.location='dashboard.php'</script>";
         }
 
         else

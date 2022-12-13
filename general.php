@@ -2,27 +2,27 @@
 
 session_start();
 
-if (!isset($_SESSION["username"])) {
-    header("Location: login.php");
-    exit();
+if(!empty($_SESSION['username']))
+{
+    $username = $_SESSION['username'];
 }
 
-if(isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $message = $_POST['message'];
-    $rates = $_POST['rates'];
-    $prefdentistry = $_POST['prefdentistry'];
-    $date = $_POST['date'];
-    $time = $_POST['time'];
-    $services = $_POST['services'];
+// if(isset($_POST['submit'])) {
+//     $name = $_POST['name'];
+//     $message = $_POST['message'];
+//     $rates = $_POST['rates'];
+//     $prefdentistry = $_POST['prefdentistry'];
+//     $date = $_POST['date'];
+//     $time = $_POST['time'];
+//     $services = $_POST['services'];
 
-    $sql = "INSERT INTO `appointment` (`name`,`message`,`rates`,`prefdentistry`,`date`,`time`,`services`) VALUES ('$name','$message','$rates','$prefdentistry','$date','$time','$services')";
-    if($query = $conn->query($sql)) {
-        echo "<script>alert('Appointment Submitted Successfully.')</script>";
-    }else{
-        echo $conn->error;
-    }
-}
+//     $sql = "INSERT INTO `appointment` (`name`,`message`,`rates`,`prefdentistry`,`date`,`time`,`services`) VALUES ('$name','$message','$rates','$prefdentistry','$date','$time','$services')";
+//     if($query = $conn->query($sql)) {
+//         echo "<script>alert('Appointment Submitted Successfully.')</script>";
+//     }else{
+//         echo $conn->error;
+//     }
+// }
 
 ?>
 
@@ -57,18 +57,15 @@ if(isset($_POST['submit'])) {
                 <a href="index.php" class="logo"><img src="img/logo.png" /></a>
 
                 <nav class="navbar">
-                    <a href="index.php">Home</a>
-                    <a href="about.php">About Us</a>
-                    <a href="services.php">Services</a>
-                    <a href="appointment.php">Make an Appointment</a>
-                    <a href="contact.php">Contact Us</a>
-                    <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
-                    <div class="logout">
-                        <a href="logout.php">Logout</a>
-                    </div>
-                </nav>
-            </section>
-        </header>
+                <a href="index.php">Home</a>
+                <a href="about.php">About Us</a>
+                <a href="services.php">Services</a>
+                <a href="appointment.php">Make an Appointment</a>
+                <a href="contact.php">Contact Us</a>
+                <a href="login.php" class="btnLogin">Login</a>
+            </nav>
+        </section>
+    </header>
 
         <div class="content">
             <div class="content-title">
@@ -85,58 +82,6 @@ if(isset($_POST['submit'])) {
                 <b>Restorative Dentistry</b> - refers to the restoration of teeth using fillings. Dental cavities are treated with amalgam or tooth-colored fillings. The latter is specially made to match the color of your teeth.
                 <br><br>
                 <b>Teeth Whitening</b> - uses plasma arc blue light technology that activates a specially formulated gel to whiten teeth. This is an effective procedure that whitens discolored or stained teeth with the latest and safest technology.</p>
-            </div>
-        </div>
-
-        <div class="appointment">
-            <div class="appointment-form">
-            <form action="oralsurgery.php" method="POST" class="form">
-                    <h1>Set an Appointment</h1>
-                    <div class="mb-3">
-                            <label for="name">Fullname:</label>
-                            <input type="text" class="form-control" id="form-control" placeholder="Fullname" name="name" required>
-                        </div>
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="message"></textarea>
-                            <label for="floatingTextarea2">Message:</label>
-                        </div>
-                        <label for="services">Rate(1-5):</label>
-                        <select class="form-select" aria-label="Default select example" name="rates">
-                            <option selected>Rate Me</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <label for="services">Preferred Dentistry:</label>
-                        <select class="form-select" aria-label="Default select example" name="prefdentistry">
-                            <option selected>Preferred Dentistry</option>
-                            <option value="Dr. Haslaine P. Caunda">Dr. Haslaine P. Caunda</option>
-                            <option value="Dr. Ashylle Anne Dime">Dr. Ashylle Anne Dime</option>
-                            <option value="Dr. Jamvit Cajaban">Dr. Jamvit Cajaban</option>
-                            <option value="Dr. Joezette Talaue">Dr. Joezette Talaue</option>
-                        </select>
-                        <div class="mb-3">
-                            <label for="date">Preferred Date:</label>
-                            <input type="date" class="form-control" id="form-control" placeholder="Preferred Date" name="date" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="time">Preferred Time:</label>
-                            <input type="time" class="form-control" id="form-control" placeholder="Preferred Time" name="time" required>
-                        </div>
-                        <label for="services">Services:</label>
-                        <select class="form-select" aria-label="Default select example" name="services">
-                            <option selected>Preferred Services</option>
-                            <option value="Teeth cleaning">Teeth cleaning</option>
-                            <option value="Restorative Teeth Bonding">Restorative Teeth Bonding</option>
-                            <option value="Restorative Dentistry">Restorative Dentistry</option>
-                            <option value="Teeth Whitening">Teeth Whitening</option>
-                        </select>
-                    <div>
-                        <button type="submit" class="btn" name="submit">Submit an Appointment</button>
-                    </div>
-                </form>
             </div>
         </div>
 
@@ -161,14 +106,5 @@ if(isset($_POST['submit'])) {
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        var myModal = document.getElementById('myModal')
-        var myInput = document.getElementById('myInput')
-
-        myModal.addEventListener('shown.bs.modal', function () {
-        myInput.focus()
-        })
-
-    </script>
 </body>
 </html>

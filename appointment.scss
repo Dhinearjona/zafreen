@@ -1,0 +1,29 @@
+@import url('header.css');
+@import url('footer.css');
+
+.appoint {
+    padding: 15% 10%;
+    text-align: center;
+
+    .appoint-desc {
+        
+        h1 {
+            font-size: var(--h1);
+            font-weight: 800;
+            color: var(--purple);
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: var(--p);
+            margin-bottom: 2rem;
+        }
+
+        a {
+            background-color: var(--purple);
+            padding: 12px 34px;
+            color: var(--white);
+            text-decoration: none;
+        }
+    }
+}

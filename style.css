@@ -2,7 +2,6 @@
 @import url("footer.css");
 .cover {
   height: 80vh;
-  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(/img/cover.jpg);
   background-size: cover;
   display: flex;
   align-items: center;
@@ -87,4 +86,8 @@
 }
 .choose .choose-card .row .column .card p {
   font-size: var(--p);
+}
+
+.gallery .gallery-img img {
+  width: 10rem;
 }

@@ -2,9 +2,9 @@
 
 session_start();
 
-if (!isset($_SESSION["username"])) {
-    header("Location: login.php");
-    exit();
+if(!empty($_SESSION['username']))
+{
+    $username = $_SESSION['username'];
 }
 
 ?>
@@ -44,23 +44,20 @@ if (!isset($_SESSION["username"])) {
                 <a href="index.php">Home</a>
                 <a href="about.php">About Us</a>
                 <a href="services.php">Services</a>
-                <a href="appoint.php">Make an Appointment</a>
+                <a href="appointment.php">Make an Appointment</a>
                 <a href="contact.php">Contact Us</a>
-                <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
-                <div class="logout">
-                    <a href="logout.php">Logout</a>
-                </div>
+                <a href="login.php" class="btnLogin">Login</a>
             </nav>
         </section>
     </header>
 
-    <div class="cover">
+    <div class="cover" style="background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(./img/cover.jpg);">
         <div class="cover-desc">
             <h1>Welcome to Zafreen Dental Center</h1>
             <h3>Cosmetics and Orthondontics</h3>
             <p>Here to fix your teeth and give confidence with your smile.</p>
-            <a href="contact.html">Get in Touch</a>
-            <a href="appoint.html" class="btn2">Make an Appointment</a>
+            <a href="contact.php">Get in Touch</a>
+            <a href="appointment.php" class="btn2">Make an Appointment</a>
         </div>
     </div>
 
@@ -86,6 +83,17 @@ if (!isset($_SESSION["username"])) {
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-img">
+            <img src="img/img1.jpg" />
+            <img src="img/img2.jpg" />
+            <img src="img/img3.jpg" />
+            <img src="img/img4.jpg" />
+            <img src="img/img5.jpg" />
+            <img src="img/img6.jpg" />
         </div>
     </div>
 

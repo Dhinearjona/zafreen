@@ -3,9 +3,9 @@
     require "connection.php";
     session_start();
 
-    if (!isset($_SESSION["username"])) {
-        header("Location: login.php");
-        exit();
+    if(!empty($_SESSION['username']))
+    {
+        $username = $_SESSION['username'];
     }
 
     if(isset($_POST['submit'])) {
@@ -37,7 +37,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="appoint.css">
+    <link rel="stylesheet" href="appointment.css">
     <title>Make an Appointment - Zafreen Dental Clinic</title>
 </head>
 <body>
@@ -63,10 +63,7 @@
                 <a href="services.php">Services</a>
                 <a href="appointment.php">Make an Appointment</a>
                 <a href="contact.php">Contact Us</a>
-                <div class="welcome" style="text-align: center; margin: 0 5rem;"><?php echo "<h1 style='font-size: var(--p); text-align: center; margin-bottom: 0;' margin-left: 2rem;>Welcome</h1> " . "<a href='profile.php' style='text-decoration: none; color: var(--purple); font-weight: 800; margin: 0;'>" . $_SESSION['username']; "</a>" ?></div>
-                <div class="logout">
-                    <a href="logout.php">Logout</a>
-                </div>
+                <a href="login.php" class="btnLogin">Login</a>
             </nav>
         </section>
     </header>
@@ -75,66 +72,9 @@
         <div class="appoint-desc">
             <h1>Make an Appointment</h1>
             <p>Create an account and book your first appointment today to experience quality and safe dental journey. Get best dental treatment with a click.</p>
+            <a href="login.php">Make an Appointment</a>
         </div>
     </div>
-
-    <div class="appointment">
-            <div class="appointment-form">
-            <form action="appointment.php" method="POST" class="form">
-                    <h1>Set an Appointment</h1>
-                    <div class="mb-3">
-                            <label for="name">Fullname:</label>
-                            <input type="text" class="form-control" id="form-control" placeholder="Fullname" name="name" required>
-                        </div>
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="message"></textarea>
-                            <label for="floatingTextarea2">Message:</label>
-                        </div>
-                        <label for="services">Rate(1-5):</label>
-                        <select class="form-select" aria-label="Default select example" name="rates">
-                            <option selected>Rate Me</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <label for="services">Preferred Dentistry:</label>
-                        <select class="form-select" aria-label="Default select example" name="prefdentistry">
-                            <option selected>Preferred Dentistry</option>
-                            <option value="Dr. Haslaine P. Caunda">Dr. Haslaine P. Caunda</option>
-                            <option value="Dr. Ashylle Anne Dime">Dr. Ashylle Anne Dime</option>
-                            <option value="Dr. Jamvit Cajaban">Dr. Jamvit Cajaban</option>
-                            <option value="Dr. Joezette Talaue">Dr. Joezette Talaue</option>
-                        </select>
-                        <div class="mb-3">
-                            <label for="date">Preferred Date:</label>
-                            <input type="date" class="form-control" id="form-control" placeholder="Preferred Date" name="date" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="time">Preferred Time:</label>
-                            <input type="time" class="form-control" id="form-control" placeholder="Preferred Time" name="time" required>
-                        </div>
-                        <label for="services">Services:</label>
-                        <select class="form-select" aria-label="Default select example" name="services">
-                            <option selected>Preferred Services</option>
-                            <option value="Oral Surgery">Oral Surgery</option>
-                            <option value="Periodontics">Periodontics</option>
-                            <option value="Orthodontics">Orthodontics</option>
-                            <option value="Endodontics">Endodontics</option>
-                            <option value="Pediatric Dentistry">Pediatric Dentistry</option>
-                            <option value="Prosthodontics">Prosthodontics</option>
-                            <option value="General Dentistry">General Dentistry</option>
-                            <option value="TMJ">TMJ</option>
-                            <option value="Cosmetics Dentistry">Cosmetics Dentistry</option>
-                            <option value="Laser Dentistry">Laser Dentistry</option>
-                        </select>
-                    <div>
-                        <button type="submit" class="btn" name="submit">Submit an Appointment</button>
-                    </div>
-                </form>
-            </div>
-        </div>
 
         <section class="footer">
         <div class="footer-desc">
